@@ -12,7 +12,7 @@ def connect_db(app):
 
 
 class Pet(db.Model):
-    """User"""
+    """Pet SQL Model"""
 
     def __repr__(self):
         return f"Id: {self.id} Name:{self.name} Species: {self.species} Avail: {self.available}"
