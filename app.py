@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect
 from models import db, connect_db, Pet
 from flask_debugtoolbar import DebugToolbarExtension
 from forms import AddPetForm, EditPetForm
+from petAPI import get_animal
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "Johnny Tightlips"
@@ -20,6 +21,8 @@ connect_db(app)
 def index():
     """Home Page"""
 
+    animal = get_animal()
+    print('**************', animal, '****************************')
     pets = Pet.query.all()
     return render_template('index.html', pets=pets)
 
